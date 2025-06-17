@@ -12,8 +12,9 @@ public class p3 {
                 if(i%j==0)     
                 counter++;
             }
-            if(counter)
+            if()
         }
         sc.close();
     }
 }
+// Todo PRIME Number find
