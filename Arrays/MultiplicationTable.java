@@ -1,24 +1,21 @@
-//  Create a program to find the multiplication table of a number entered by the user from 6 to 9 and display the result
-// Hint => 1. Get an integer input from the user, assign it to a variable number, and check for a Natural Number. If not a natural number, then print an error and exit the program 2. Create a for loop to iterate from 6 to 9 3. Inside the loop, multiply the number by the loop index and print the result
-import java.util.Scanner;   
+package Arrays;
+
 public class MultiplicationTable {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        
-        // Input for the number
-        System.out.print("Enter a natural number: ");
-        int number = input.nextInt();
-        
-        // Check if the number is a natural number
-        if (number < 1) {
-            System.out.println("Error: Please enter a natural number greater than 0.");
-            return;
+        public static void main(String[] args) {
+            // Get the number for which to print the multiplication table
+            int number = 9;
+
+            // Define an integer array to store the results of multiplication from 1 to 10
+            int[] multiplicationTable = new int[10];
+
+            // Run a loop from 1 to 10 and store the results in the multiplication table array
+            for (int i = 1; i <= 10; i++) {
+                multiplicationTable[i - 1] = number * i;
+            }
+
+            // Finally, display the result from the array in the format number * i = ___
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(number + " * " + i + " = " + multiplicationTable[i - 1]);
+            }
         }
-        
-        // Create a multiplication table from 6 to 9
-        for (int i = 1; i <= 10; i++) {
-            int result = number * i;
-            System.out.println(number + " x " + i + " = " + result);
-        }
-    }
 }

@@ -1,35 +1,48 @@
-// Create a program to find the factors of a number taken as user input, store the factors in an array, and display the factors
 import java.util.Scanner;
+
 public class Factors {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        
-        // Input for the number
-        System.out.print("Enter a positive integer to find its factors: ");
-        int number = input.nextInt();
-        
-        // Validate input
-        if (number <= 0) {
-            System.out.println("Please enter a positive integer.");
-            return;
-        }
-        
-        // Create an array to hold the factors
-        int[] factors = new int[number]; // Maximum possible factors is the number itself
-        int count = 0; // To keep track of the number of factors
-        
-        // Find factors and store them in the array
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Take the input for a number
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        // 2. Find the factors of the number and save them in an array.
+        int maxFactor = 10;
+        int[] factors = new int[maxFactor];
+        int index = 0;
+
+        // 3. To find factors, loop through the numbers from 1 to the number
         for (int i = 1; i <= number; i++) {
+            // find the factors
             if (number % i == 0) {
-                factors[count] = i;
-                count++;
+                // and add them to the array element by incrementing the index
+                factors[index] = i;
+                index++;
+
+                // If the index is equal to maxIndex, then the need factors array to store more elements
+                if (index == maxFactor) {
+                    // 4. To store more elements, reset the maxIndex to twice its size
+                    maxFactor *= 2;
+                    // use the temp array to store the elements from the factors array
+                    int[] temp = new int[maxFactor];
+                    for (int j = 0; j < factors.length; j++) {
+                        temp[j] = factors[j];
+                    }
+                    // and eventually assign the factors array to the temp array
+                    factors = temp;
+                }
             }
         }
-        
-        // Display the factors
-        System.out.print("Factors of " + number + ": ");
-        for (int i = 0; i < count; i++) {
+
+        // 5. Finally, display the factors of the number
+        System.out.print("Factors of " + number + " are: ");
+        for (int i = 0; i < index; i++) {
             System.out.print(factors[i] + " ");
         }
+        System.out.println();
+
+        scanner.close();
     }
 }
