@@ -10,7 +10,7 @@ class Employee {
         this.name = name; this.department = department; this.salary = salary;
     }
     public String getDepartment() { return department; }
-    public double getSalary() { return salary; }
+    public double getSalary() { return salary;}
 }
 
 public class EmployeeSalary {
